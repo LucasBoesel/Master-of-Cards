@@ -1,0 +1,308 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    color: orange;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.background-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.content {
+    position: absolute;
+    top: 10%; /* Mantém a posição do título */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.title-container {
+    background: rgba(0, 0, 0, 0.6); /* Fundo escuro semi-transparente */
+    padding: 20px 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    display: inline-block;
+}
+
+h1 {
+    font-size: 4em;
+    margin: 0;
+}
+
+.version-indicator {
+    position: fixed;
+    top: 10px; /* Distância do topo */
+    right: 15px; /* Distância da direita */
+    font-size: 28px; /* Tamanho do texto */
+    font-family: Arial, sans-serif; /* Fonte */
+    color: black; /* Cor do texto */
+    padding: 5px 10px; /* Espaçamento interno */
+    z-index: 1; /* Garante que fique acima de outros elementos */
+}
+
+.back-btn {
+    position: absolute; /* Faz o botão se posicionar relativo ao container */
+    top: 20px;
+    left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    background-color: gray;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 2; /* Garante que o botão fique acima do conteúdo do container */
+}
+
+.back-btn:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+
+/* Estilo dos botões */
+.overlay-buttons {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centraliza os botões */
+    display: flex;
+    flex-direction: column; /* Para empilhar os botões verticalmente */
+    align-items: center;
+    z-index: 3; /* Garante que esteja acima do conteúdo */
+}
+
+.overlay-buttons button {
+    padding: 15px 25px; /* Ajuste o tamanho para todos os botões */
+    font-size: 24px;
+    margin: 10px 0; /* Espaçamento entre os botões */
+    border: 3px solid #222;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Adiciona transições suaves */
+    width: 250px; /* Tamanho fixo para todos os botões */
+    text-align: center;
+}
+
+.overlay-buttons button:hover {
+    transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+}
+
+.button-play {
+    background-color: #1d5083;
+    color: #fff;
+}
+
+.button-play:hover {
+    background-color: #e96827 /* Altera a cor no hover */
+}
+
+.button-opcoes {
+    background-color: #1d5083;
+    color: #fff;
+}
+
+.button-opcoes:hover {
+    background-color: #e96701; /* Altera a cor no hover */
+}
+
+.game-mode-container {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.game-mode-bar {
+    position: relative;
+    font-size: 20px;
+    background-color: #333;
+    border-radius: 8px;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    border: 3px solid #222;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+}
+
+.game-mode-bar span {
+    color: orange;
+    font-size: 24px;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.arrow-btn {
+    background-color: #333 !important;  /* Cinza escuro - cor fixa */
+    color: white !important;  /* Cor da seta em branco */
+    font-size: 28px !important;
+    border: none;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    cursor: pointer !important;
+    transition: background-color 0.3s ease, transform 0.2s ease, font-size 0.2s ease !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center!important;
+}
+
+.arrow-btn:hover {
+    transform: scale(1.2)!important; /* Amplia o botão */
+    font-size: 30px !important; /* Aumenta o tamanho da seta */
+}
+
+.play-btn {
+    padding: 15px 25px !important;
+    font-size: 24px !important;
+    margin-top: 20px !important;
+    background-color: #1d5083 !important;
+    color: white !important; /* Para evitar conflito de cor */
+    border: none;
+    border-radius: 12px !important;
+    cursor: pointer !important;
+    text-align: center !important;
+    transition: background-color 0.3s ease !important;
+    width: 120px !important; /* Tamanho fixo para todos os botões */
+}
+
+.play-btn:hover {
+    background-color: #e96701!important; /* Azul quando passar o mouse */
+}
+
+.music-controls {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    gap: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    z-index: 10;
+    background: none;
+    color: white;
+}
+
+/* Estilo do botão para que o ícone tenha boa visibilidade */
+.music-controls button {
+    border: none;
+    background: none; /* Sem fundo */
+    padding: 0;
+    cursor: pointer;
+}
+
+/* Ícone do som, sem fundo branco */
+.music-controls img {
+    width: 50px;  /* Ajuste o tamanho do ícone conforme necessário */
+    height: 50px;
+}
+
+.music-controls :hover {
+    transform: scale(1.1);  
+}
+
+/* Overlay de Modo de Jogo */
+.game-modes-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    color: white;
+
+    opacity: 0; /* Inicialmente invisível */
+    visibility: hidden; /* Garante que esteja oculto */
+    transition: opacity 0.5s ease, visibility 0.5s ease; /* Suaviza a transição */
+}
+
+.game-modes-content {
+    text-align: center;
+}
+
+.game-modes-content button {
+    margin: 10px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+    background-color: gray;
+    transition: background-color 0.3s ease;
+}
+
+.game-modes-content button:hover {
+    background-color: #ff6347;
+} 
+
+/* Estilos Responsivos */
+@media (max-width: 500px) {
+   
+    .content {
+        top: 10%; /* Mantém a posição do título */
+    }
+    
+    .title-container {
+        padding: 10px 5px;
+    }
+
+    h1 {
+        font-size: 2.0em;
+    }
+
+    .overlay-buttons button {
+        padding: 10px 5px; /* Ajuste o tamanho para todos os botões */
+        font-size: 20px;
+        margin: 10px 0; /* Espaçamento entre os botões */
+        width: 150px; /* Tamanho fixo para todos os botões */
+    }
+
+.version-indicator {
+    font-size: 18px; /* Tamanho do texto */
+  
+}
+
+.game-mode-bar {
+    font-size: 18px;
+    font-weight: bold;
+    width: 250px;
+    padding: 10px 20px;
+}
+
+.game-mode-bar span {
+    font-size: 18px;
+}
+
+.arrow-btn {
+    border: none;
+    width: 20px !important;
+    height: 20px !important;
+}
+}

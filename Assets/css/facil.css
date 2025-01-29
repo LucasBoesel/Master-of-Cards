@@ -1,0 +1,356 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+}
+
+.background-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+#full-screen-button {
+    position: fixed;
+    bottom: 10px;
+    left: 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 2;
+  }
+  
+  #full-screen-button img {
+    width: 60px; /* Tamanho do ícone */
+    height: 60px;
+  }
+
+#full-screen-button :hover {
+    transform: scale(1.1);  
+}
+
+.music-controls {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    gap: 10px;
+    padding: 0px;
+    border-radius: 8px;
+    z-index: 10;
+    background: none;
+    color: white;
+}
+
+/* Estilo do botão para que o ícone tenha boa visibilidade */
+.music-controls button {
+    border: none;
+    background: none; /* Sem fundo */
+    padding: 0;
+    cursor: pointer;
+}
+
+/* Ícone do som, sem fundo branco */
+.music-controls img {
+    width: 50px;  /* Ajuste o tamanho do ícone conforme necessário */
+    height: 50px;
+}
+
+.music-controls :hover {
+    transform: scale(1.1);  
+}
+
+/* Estilo do input de volume */
+.music-controls input[type="range"] {
+    cursor: pointer;
+    width: 100px;
+}
+
+.status-container {
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 34px;
+    font-weight: bold;
+    padding: 0 20px; /* Adiciona margem horizontal */
+}
+
+.status-time, .status-score, .status-attempts {
+    color: white;
+}
+
+.status-time {
+    color: white;
+    margin-right: 20px; /* Espaço à direita */
+}
+
+.status-score {
+    color: white;
+    font-weight: bold;
+}
+
+.status-score span {
+    color: #00FF00; /* Cor verde brilhante */
+    font-weight: bold; /* Destaque para o número */
+}
+
+.status-attempts {
+    color: white;
+    margin-left: 20px; /* Espaço à esquerda */
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    justify-items: center;
+    margin-top: 10px;
+}
+
+.card {
+    width: 160px;
+    height: 220px;
+    background-color: #444;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+
+.card .card-front, .card .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 10px;
+}
+
+.card .card-front {
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card .card-back {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    transform: rotateY(180deg);
+}
+
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.overlay-content {
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    padding: 20px;
+}
+
+.overlay-buttons {
+    display: flex;
+    flex-direction: column; /* Para empilhar os botões verticalmente */
+    align-items: center;
+    margin-top: 20px;
+}
+
+.overlay-buttons button {
+    padding: 15px 25px; /* Ajuste o tamanho para todos os botões */
+    font-size: 24px;
+    margin: 10px 0; /* Espaçamento entre os botões */
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 250px; /* Tamanho fixo para todos os botões */
+}
+
+.overlay-buttons button:hover {
+    transform: scale(1.1);
+}
+
+.button-restart {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.button-exit {
+    background-color: #f44336;
+    color: #fff;
+}
+
+/* Tela de Pausa */
+.overlay-pause {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+}
+
+.overlay-pause .pause-message {
+    color: white;
+    text-align: center;
+    font-size: 32px;
+}
+
+.overlay-pause .overlay-buttons {
+    display: flex;               /* Torna o container flexível */
+    flex-direction: column;       /* Empilha os botões verticalmente */
+    align-items: center;          /* Centraliza os botões */
+    margin-top: 20px;
+}
+
+.overlay-pause.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.overlay-pause button {
+    padding: 10px 20px;
+    font-size: 28px;
+    margin: 10px 0;             /* Espaçamento entre os botões */
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.overlay-pause button:hover {
+    transform: scale(1.1);
+}
+
+.overlay-pause .button-restart {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.overlay-pause .button-exit {
+    background-color: #f44336;
+    color: #fff;
+}
+
+@media (max-width: 500px) {
+    .card {
+        width: 70px;
+        height: 90px;
+    }
+
+    .status-container {
+        font-size: 10px;
+    }
+     
+      #full-screen-button img {
+        width: 40px; /* Tamanho do ícone */
+        height: 40px;
+      }
+    
+    .music-controls {
+        position: absolute;
+        bottom: 10px;
+        right: 20px;
+        display: flex;
+        align-items: center;
+        font-size: 24px;
+        gap: 10px;
+        border-radius: 8px;
+        z-index: 10;
+        background: none;
+        color: white;
+    }
+
+    .music-controls label {
+        display: none;
+    }
+    
+    /* Estilo do botão para que o ícone tenha boa visibilidade */
+    .music-controls button {
+        border: none;
+        background: none; /* Sem fundo */
+        padding: 0;
+        cursor: pointer;
+    }
+
+    /* Ícone do som, sem fundo branco */
+    .music-controls img {
+        width: 40px;  /* Ajuste o tamanho do ícone conforme necessário */
+        height: 40px;
+    }
+
+    /* Estilo do input de volume */
+    .music-controls input[type="range"] {
+        display: none;
+    }
+}
+
+@media (max-width: 1600px) and (min-width: 501px) {
+
+    .card {
+        width: 130px;
+        height: 180px;
+    }
+
+    .status-container {
+        font-size: 24px;
+    }
+}

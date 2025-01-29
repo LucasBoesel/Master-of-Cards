@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master of Cards - Dificuldade</title>
+  <link rel="stylesheet" href="Assets/css/dificuldade.css">
+  <link rel="icon" href="Assets/img/favicon.png" type="favicon.png">
+</head>
+<body>
+  <!-- Imagem de fundo -->
+  <img class="background-img" src="Assets/img/fundo.jpeg" alt="background">
+
+  <div class="container">
+    <a href="login.html" class="back-btn">Voltar</a>
+    
+    <div class="logo">
+      <img src="Assets/img/logo.png" alt="logo">
+    </div>
+    
+    <h1>Selecione sua dificuldade</h1>
+
+    <div class="dificuldade-container">
+      <div class="dificuldade-bar">
+        <button class="arrow-btn left" onclick="alterarDificuldade('esquerda')">←</button>
+        <span id="selected-difficulty">Aprendiz de Cavaleiro</span>
+        <button class="arrow-btn right" onclick="alterarDificuldade('direita')">→</button>
+      </div>
+    </div>
+
+    <div class="play-container">
+      <button class="play-btn" onclick="startGame()">Jogar</button>
+    </div>
+  </div>
+
+  <script src="js/dificuldade.js"></script>
+</body>
+</html>

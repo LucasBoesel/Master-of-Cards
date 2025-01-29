@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master of Cards - Versus</title>
+  <link rel="stylesheet" href="Assets/css/versus-taverna.css">
+  <link rel="icon" href="Assets/img/favicon.png" type="favicon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <audio id="background-music" src="Assets/audio/taverna.mp4" loop autoplay></audio>
+
+  <img class="background-img" src="Assets/img/mapas/taverna.jpg" alt="Fundo do jogo">
+
+  <div id="whoStarts">
+    <span id="player1" style="display: none;">Jogador 1 começa!</span>
+    <span id="player2" style="display: none;">Jogador 2 começa!</span>
+</div>
+
+<div id="full-screen-button" onclick="toggleFullScreen()">
+  <img src="Assets/img/telaCheia.png" alt="Tela Cheia">
+</div>
+
+  <!-- Controles de Música -->
+  <div class="music-controls">
+    <button id="music-button" onclick="toggleMusic()">
+      <img id="music-icon" src="Assets/img/som.png" alt="Som">
+    </button>
+    <label for="volume-control">Volume:</label>
+    <input type="range" id="volume-control" min="0" max="1" step="0.1" onchange="setVolume(this.value)">
+  </div>
+
+  <div id="overlay-pause" class="overlay-pause">
+    <div class="pause-message">
+      <h1>Jogo Pausado</h1>
+      <p>Pressione ESC para continuar</p>
+      <!-- Botões para reiniciar ou sair -->
+      <div class="overlay-buttons"> <!-- Corrigido para overlay-buttons -->
+        <button class="button-restart" onclick="resetGame()">Reiniciar</button>
+        <button class="button-exit" onclick="exitGame()">Sair</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="turn-indicator" class="turn-indicator">
+    <p id="turn-text">É a vez de <span id="current-player-name"></span></p>
+  </div>
+
+
+  <!-- Barra de Status -->
+  <div class="status-container-azul">
+    <div class="nome-player1">
+      <p id="player1-name"></p>
+      <div class="rounded-container-1">
+        <img src="Assets/img/avatar/elfa.jpg" alt="Imagem Redonda">
+    </div>
+    </div>
+    <div class="status-score-1">
+      <p>Pontos: <span id="player1-score">0</span></p>
+    </div>
+  </div>
+
+  <div class="status-container-vermelho">
+    <div class="nome-player2">
+      <p id="player2-name"></p>
+      <div class="rounded-container-2">
+        <img src="Assets/img/avatar/princesa-verde.jpg" alt="Imagem Redonda">
+    </div>
+    </div>
+    <div class="status-score-2">
+      <p>Pontos: <span id="player2-score">0</span></p>
+    </div>
+  </div>
+
+  <div class="card-grid" id="card-grid"></div>
+  <p id="timer">Tempo restante: <span id="time-left">20</span> segundos</p>
+
+  <!-- Tela de Overlay (Fim de Jogo) -->
+  <div class="overlay" id="overlay">
+    <div class="overlay-content">
+      <p id="message"></p>
+      <div class="overlay-buttons">
+        <button class="button-restart" onclick="resetGame()">Jogar de Novo</button>
+        <button class="button-exit" onclick="exitGame()">Sair</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/versus-taverna.js"></script>
+</body>
+
+</html>

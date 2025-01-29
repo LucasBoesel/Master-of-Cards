@@ -1,0 +1,521 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Raleway', sans-serif;
+    background-color: #f4f4f4;
+}
+
+.background-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    width: 80%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+}
+
+.logo {
+    max-width: 350px;
+    height: auto;
+    position: relative;
+    top: -40px;
+    margin: -50px auto;
+}
+
+.logo img {
+    width: 100%;
+}
+
+.image-container {
+    position: relative;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #1d5083;
+    border-radius: 10px;
+}
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.image-text {
+    margin-top: 0px;
+    font-size: 32px;
+    color: #ef801c;
+    font-weight: bold;
+    text-align: center;
+}
+
+.arrow-btn-container {
+    display: flex;
+    margin-top: 0px;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow-btn {
+    background-color: #1d5083 !important;
+    color: white !important;
+    font-size: 42px !important;
+    border: none;
+    width: 50px !important;
+    height: 50px !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin: 0 10px;
+}
+
+.back-btn {
+    position: absolute;
+    /* Faz o botão se posicionar relativo ao container */
+    top: 20px;
+    left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    padding: 10px;
+    border: 2px solid #333;
+    border-radius: 8px;
+    background-color: #fff;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    z-index: 1;
+}
+
+.back-btn:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+}
+
+.start-btn {
+    background-color: #ef801c;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease;
+    display: block;
+    width: fit-content;
+    margin-top: 30px;
+    z-index: 1;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.start-btn:hover {
+    background-color: #cf6b00;
+}
+
+.square-container-2 {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 300px;
+    height: 300px;
+    border-radius: 8px;
+    background-color: crimson;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 50px;
+    padding-bottom: 80px;
+    z-index: 1;
+}
+
+.square-container-1 {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 300px;
+    height: 300px;
+    border-radius: 8px;
+    background-color: #316195;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 50px;
+    padding-bottom: 80px;
+    z-index: 1;
+}
+
+.square-container-1-text,
+.square-container-2-text {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+}
+
+.rounded-container-1,
+.rounded-container-2 {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.rounded-container-1 img,
+.rounded-container-2 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.rounded-container-1:hover::after,
+.rounded-container-2:hover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.4);
+    z-index: 1;
+}
+
+.player-input {
+    font-size: 24px;
+    font-weight: inherit;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    width: 100%;
+    padding: 0;
+    border: 2px solid #222;
+    border-radius: 8px;
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    transition: box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+
+.player-input:focus {
+    background-color: gray;
+    color: white;
+}
+
+/* Overlay de Modo de Jogo */
+.avatar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    color: white;
+    opacity: 0;
+    /* Inicialmente invisível */
+    visibility: hidden;
+    /* Garantir que o overlay esteja oculto */
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.avatar-content {
+    text-align: center;
+}
+
+.avatar-container-1 {
+    background-color: #6c93cc;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    padding: 50px;
+    border-radius: 8px;
+    height: 80%;
+    /* Para garantir que o container ocupe quase toda a tela */
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    /* Alinhamento central */
+    align-items: center;
+    /* Alinhamento vertical */
+}
+
+.avatar-container-2 {
+    background-color: crimson;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    padding: 50px;
+    border-radius: 8px;
+    height: 80%;
+    /* Para garantir que o container ocupe quase toda a tela */
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    /* Alinhamento central */
+    align-items: center;
+    /* Alinhamento vertical */
+}
+
+.avatar-image-container {
+    display: flex;
+    justify-content: space-between;
+    /* Coloca as imagens ao lado uma da outra */
+    align-items: center;
+}
+
+.avatar-rounded-container-1,
+.avatar-rounded-container-2,
+.avatar-rounded-container-3,
+.avatar-rounded-container-4 {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 0 20px;
+    /* Espaçamento entre as imagens */
+}
+
+.avatar-rounded-container-1 img,
+.avatar-rounded-container-2 img,
+.avatar-rounded-container-3 img,
+.avatar-rounded-container-4 img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-rounded-container-1:hover::after,
+.avatar-rounded-container-2:hover::after,
+.avatar-rounded-container-3:hover::after,
+.avatar-rounded-container-4:hover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.4);
+    z-index: 1;
+}
+
+/* Responsividade Celulares */
+@media (max-width: 500px) {
+
+    .container {
+        padding: 20px;
+        width: 90%;
+        height: 90vh;
+    }
+
+    .back-btn {
+        position: absolute;
+        /* Faz o botão se posicionar relativo ao container */
+        top: 20px;
+        left: 20px;
+        font-size: 12px;
+        padding: 5px;
+    }
+
+    .logo {
+        max-width: 150px;
+        /* Tamanho máximo da logo */
+        top: -5px;
+        margin: -20px auto;
+    }
+
+    .logo img {
+        width: 100%;
+    }
+
+    .start-btn {
+        padding: 5px 10px;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    .square-container-1 {
+        top: 32%;
+        right: 5%;
+        width: 100px;
+        height: 100px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .square-container-2 {
+        top: 32%;
+        right: 5%;
+        width: 100px;
+        height: 100px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .square-container-1-text,
+    .square-container-2-text {
+        font-size: 16px;
+    }
+
+    .rounded-container-1,
+    .rounded-container-2 {
+        width: 60px;
+        height: 60px;
+    }
+
+
+    .image-container {
+        top: 0;
+        width: 100%;
+        max-width: 130px;
+        margin-top: 130px;
+    }
+
+    .image-text {
+        font-size: 14px;
+    }
+
+    .arrow-btn {
+        font-size: 16px !important;
+        border: none;
+        width: 0px !important;
+        height: 0px !important;
+        margin: 0 10px;
+    }
+
+
+    .avatar-overlay {
+        width: 100%;
+        height: 100%;
+    }
+
+    .avatar-container-1 {
+        padding: 50px;
+        height: 90%;
+        width: 90%;
+    }
+
+    .avatar-container-2 {
+        padding: 50px;
+        height: 90%;
+        width: 90%;
+    }
+
+    .avatar-rounded-container-1,
+    .avatar-rounded-container-2,
+    .avatar-rounded-container-3,
+    .avatar-rounded-container-4 {
+        width: 60px;
+        height: 60px;
+        margin: 0 5px;   /* Espaçamento entre as imagens */
+    }
+}
+
+/* Responsividade Notebooks */
+@media (max-width: 1600px) and (min-width: 501px) {
+
+    .logo {
+        max-width: 250px;
+        top: 5px;
+        margin: -50px auto;
+    }
+
+    .start-btn {
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        margin-top: 25px;
+    }
+
+    .image-container {
+        top: 0;
+        width: 100%;
+        max-width: 400px;
+        margin-top: 50px;
+    }
+
+    .image-text {
+        font-size: 28px;
+    }
+
+    .arrow-btn {
+        font-size: 34px !important;
+        width: 50px !important;
+        height: 50px !important;
+        margin: 0 10px;
+    }
+
+
+    .square-container-1 {
+        top: 20%;
+        left: 5%;
+        width: 200px;
+        height: 200px;
+        padding-top: 20px;
+        padding-bottom: 40px;
+    }
+
+    .square-container-2 {
+        top: 20%;
+        right: 5%;
+        width: 200px;
+        height: 200px;
+        justify-content: space-between;
+        padding-top: 20px;
+        padding-bottom: 40px;
+    }
+
+    .square-container-1-text,
+    .square-container-2-text {
+        font-size: 20px;
+    }
+
+    .rounded-container-1,
+    .rounded-container-2 {
+        width: 100px;
+        height: 100px;
+    }
+}

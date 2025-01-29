@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master of Cards - Início</title>
+    <link rel="stylesheet" href="Assets/css/inicio.css">
+    <link rel="icon" href="Assets/img/favicon.png" type="favicon.png">
+</head>
+<body>
+    <!-- Vídeo em looping como background -->
+    <video class="video-background" autoplay muted loop>
+        <source src="Assets/videos/inicio.mp4" type="video/mp4">
+    </video>
+     
+    <img class="background-img" src="Assets/img/tela-de-fundo-inicio.jpg">
+    <audio id="background-music" src="Assets/audio/verdejante.mp4" loop autoplay></audio>
+
+    <div class="content">
+        <div class="title-container">
+            <h1>Master of Cards</h1>
+        </div>
+    </div>
+    <div class="overlay-buttons"> 
+        <button class="button-play" onclick="showGameModes()">Jogar</button>
+       <!--  <button class="button-opcoes" onclick="showGameModes()">Opções</button> -->
+    </div>
+
+    <!-- Controles de Música -->
+<div class="music-controls">
+    <button id="music-button" onclick="toggleMusic()">
+        <img id="music-icon" src="Assets/img/mudo.png" alt="Som">
+    </button>
+  </div>
+  
+  
+  <div id="game-modes-overlay" class="game-modes-overlay">
+    <div class="game-modes-content">
+        <div class="game-mode-container">
+            <div class="game-mode-bar">
+              <button class="arrow-btn left" onclick="alterarGameModes('esquerda')">←</button>
+              <span id="selected-gameMode">Clássico</span>
+              <button class="arrow-btn right" onclick="alterarGameModes('direita')">→</button>
+            </div>
+        </div>
+        <div class="play-container">
+            <button class="play-btn" onclick="startGame()">Jogar</button>
+        </div>
+    </div>
+    <a href="inicio.html" class="back-btn">Voltar</a>
+</div>
+
+<div class="version-indicator">v1.0.0</div>
+
+    <script src="js/inicio.js"></script> 
+</body>
+</html>

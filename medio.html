@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master of Cards - Paladino da Luz</title>
+  <link rel="stylesheet" href="Assets/css/medio.css">
+  <link rel="icon" href="Assets/img/favicon.png" type="favicon.png">
+  <!-- Google Font for better typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Música de fundo -->
+  <audio id="background-music" src="Assets/audio/carvalho.mp4" loop autoplay></audio>
+
+  <img class="background-img" src="Assets/img/mapas/vila-carvalho.jpg" alt="Fundo do jogo">
+
+  <div id="full-screen-button" onclick="toggleFullScreen()">
+    <img src="Assets/img/telaCheia.png" alt="Tela Cheia">
+  </div>
+
+  <!-- Controles de Música -->
+ <div class="music-controls">
+   <button id="music-button" onclick="toggleMusic()">
+       <img id="music-icon" src="Assets/img/mudo.png" alt="Som">
+   </button>
+   <label for="volume-control">Volume:</label>
+   <input type="range" id="volume-control" min="0" max="1" step="0.1" onchange="setVolume(this.value)">
+ </div>
+
+ <div id="overlay-pause" class="overlay-pause">
+  <div class="pause-message">
+      <h1>Jogo Pausado</h1>
+      <p>Pressione ESC para continuar</p>
+      <!-- Botões para reiniciar ou sair -->
+      <div class="overlay-buttons"> <!-- Corrigido para overlay-buttons -->
+          <button class="button-restart" onclick="resetGame()">Reiniciar</button>
+          <button class="button-exit" onclick="exitGame()">Sair</button>
+      </div>
+  </div>
+</div>
+
+  <!-- Barra de Status -->
+  <div class="status-container">
+    <div class="status-time">
+      <p>Tempo Restante: <span id="time">60</span>s</p>
+    </div>
+    <div class="status-score">
+      <p>Pontuação: <span id="score">0</span></p>
+    </div>
+    <div class="status-attempts">
+      <p>Tentativas Restantes: <span id="attempts">25</span></p>
+    </div>
+  </div>
+
+  <!-- Grid de Cartas -->
+  <div class="card-grid" id="card-grid"></div>
+
+  <!-- Tela de Overlay (Fim de Jogo) -->
+  <div class="overlay" id="overlay">
+    <div class="overlay-content">
+      <p id="message"></p>
+      <div class="overlay-buttons">
+        <button class="button-restart" onclick="resetGame()">Jogar de Novo</button>
+        <button class="button-exit" onclick="exitGame()">Sair</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/medio.js"></script> 
+</body>
+</html>

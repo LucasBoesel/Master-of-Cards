@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master of Cards - Versus</title>
+    <link rel="stylesheet" href="Assets/css/versus.css">
+    <link rel="icon" href="Assets/img/favicon.png" type="image/png">
+</head>
+
+<body>
+    <!-- Imagem de fundo -->
+    <img class="background-img" src="Assets/img/fundo.jpeg" alt="background">
+
+    <div class="container">
+        <a href="inicio.html" class="back-btn">Voltar</a>
+
+        <div class="logo">
+            <img src="Assets/img/logo.png" alt="logo">
+        </div>
+
+        <div class="image-container">
+            <!-- A imagem que será trocada -->
+            <img id="mapa-img" src="Assets/img/mapas/vila-verdejante.jpg" alt="Imagem do mapa">
+            <div class="arrow-btn-container">
+                <button class="arrow-btn" onclick="alterarMapa('esquerda')">←</button>
+                <div class="image-text" id="selected-mapa">Vila Verdejante</div>
+                <button class="arrow-btn" onclick="alterarMapa('direita')">→</button>
+            </div>
+        </div>
+
+        <button class="start-btn" onclick="startMapa()">Começar</button>
+
+        <div class="square-container-1">
+            <div class="square-container-1-text" data-default="Player 1" onclick="editPlayerName(this)">Player 1</div>
+            <div class="rounded-container-1" onclick="showAvatar(1)"> <!-- Passando o valor '1' -->
+                <img src="Assets/img/avatar/elfa.jpg" alt="Imagem Redonda">
+            </div>
+        </div>
+        
+        <div class="square-container-2">
+            <div class="square-container-2-text" data-default="Player 2" onclick="editPlayerName(this)">Player 2</div>
+            <div class="rounded-container-2" onclick="showAvatar(2)"> <!-- Passando o valor '2' -->
+                <img src="Assets/img/avatar/princesa-verde.jpg" alt="Imagem Redonda">
+            </div>
+        </div>
+        
+<!-- Avatar Overlay 1 -->
+<div id="avatar-overlay-1" class="avatar-overlay">
+    <div class="avatar-container-1">
+        <div class="avatar-image-container">
+            <div class="avatar-rounded-container-1" onclick="selectAvatar(1, 1)">
+                <img src="Assets/img/avatar/elfa.jpg" alt="Elfa Avatar">
+            </div>
+            <div class="avatar-rounded-container-2" onclick="selectAvatar(2, 1)">
+                <img src="Assets/img/avatar/princesa-verde.jpg" alt="Princesa Verde Avatar">
+            </div>
+            <div class="avatar-rounded-container-3" onclick="selectAvatar(3, 1)">
+                <img src="Assets/img/avatar/bruto.jpg" alt="Bruto">
+            </div>
+            <div class="avatar-rounded-container-4" onclick="selectAvatar(4, 1)">
+                <img src="Assets/img/avatar/mago-sapo.jpg" alt="Sapo Mago">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Avatar Overlay 2 -->
+<div id="avatar-overlay-2" class="avatar-overlay">
+    <div class="avatar-container-2">
+        <div class="avatar-image-container">
+            <div class="avatar-rounded-container-1" onclick="selectAvatar(1, 2)">
+                <img src="Assets/img/avatar/elfa.jpg" alt="Elfa Avatar">
+            </div>
+            <div class="avatar-rounded-container-2" onclick="selectAvatar(2, 2)">
+                <img src="Assets/img/avatar/princesa-verde.jpg" alt="Princesa Verde Avatar">
+            </div>
+            <div class="avatar-rounded-container-3" onclick="selectAvatar(3, 2)">
+                <img src="Assets/img/avatar/bruto.jpg" alt="Bruto">
+            </div>
+            <div class="avatar-rounded-container-4" onclick="selectAvatar(4, 2)">
+                <img src="Assets/img/avatar/mago-sapo.jpg" alt="Sapo Mago">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <script src="js/versus.js"></script>

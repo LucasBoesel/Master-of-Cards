@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master of Cards - Login</title>
+  <link rel="stylesheet" href="Assets/css/login.css">
+  <link rel="icon" href="Assets/img/favicon.png" type="favicon.png">
+</head>
+<body>
+
+  <img class="background-img" src="Assets/img/fundo.jpeg" alt="background">
+
+  <div class="container">
+    <a href="inicio.html" class="back-btn">Voltar</a>
+
+    <div class="logo">
+      <img src="Assets/img/logo.png" alt="logo">
+    </div>
+
+    <h1>Bem-vindo ao Master of Cards</h1>
+
+    <div class="input-container">
+      <label for="username"></label>
+      <input type="text" id="username" placeholder="Seu nome">
+
+    </div>
+    <button onclick="showGreeting()">Enviar</button>
+    <p id="greeting"></p>
+    <button onclick="goToRanking()">Ver Ranking</button>
+  </div>
+
+  <script src="js/login.js"></script>
+</body>
+</html>
